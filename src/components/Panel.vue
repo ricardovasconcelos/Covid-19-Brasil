@@ -6,18 +6,30 @@
         <div class="text_data_content">
           <h1>Casos Confirmados</h1>
           <p>{{ cases }}</p>
+          <div v-show="showLoading">
+            <Spinner />
+          </div>
         </div>
         <div class="text_data_content">
           <h1>Mortes Confirmadas</h1>
           <p>{{ deaths }}</p>
+          <div v-show="showLoading">
+            <Spinner />
+          </div>
         </div>
         <div class="text_data_content">
           <h1>Casos Confirmados Hoje</h1>
           <p>{{ casesToday }}</p>
+          <div v-show="showLoading">
+            <Spinner />
+          </div>
         </div>
         <div class="text_data_content">
           <h1>Mortes Confirmadas Hoje</h1>
           <p>{{ deathsToday }}</p>
+          <div v-show="showLoading">
+            <Spinner />
+          </div>
         </div>
       </div>
     </div>
@@ -27,6 +39,7 @@
 <script>
 import image from "../assets/brasil.png";
 import data from "../service/data";
+import Spinner from "../components/Spinner";
 export default {
   name: "Panel",
   data() {
@@ -35,8 +48,12 @@ export default {
       cases: "",
       casesToday: "",
       deaths: "",
-      deathsToday: ""
+      deathsToday: "",
+      showLoading: true
     };
+  },
+  components: {
+    Spinner
   },
   async mounted() {
     try {
@@ -47,6 +64,8 @@ export default {
       this.deathsToday = res.data.todayDeaths;
     } catch (error) {
       console.error(error);
+    } finally {
+      this.showLoading = false;
     }
   }
 };
@@ -82,6 +101,10 @@ export default {
   font-family: "Gotham Rounded SSm A", "Gotham Rounded SSm B", system-ui,
     -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Helvetica Neue",
     Helvetica, sans-serif;
+  flex-direction: column;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .text_data_content p {

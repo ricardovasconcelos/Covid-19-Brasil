@@ -19,7 +19,6 @@ export default {
   async mounted() {
     try {
       const res = await history.get();
-
       this.chartData = res.data.timeline.deaths;
     } catch (error) {
       console.error(error);

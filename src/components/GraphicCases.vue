@@ -19,9 +19,7 @@ export default {
   async mounted() {
     try {
       const res = await history.get();
-      console.log(res.data);
       this.chartData = res.data.timeline.cases;
-      console.log(this.chartData);
     } catch (error) {
       console.error(error);
     }
