@@ -1,7 +1,7 @@
 <template>
   <div class="graphic">
     <div class="title_content">
-      <h1 class="title_graphic">Gráfico do Casos Confirmados</h1>
+      <h1 class="title_graphic">Gráfico de Casos Confirmados</h1>
     </div>
     <area-chart :data="chartData" :colors="['#0a0a01a8']" />
   </div>
