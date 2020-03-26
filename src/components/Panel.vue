@@ -65,7 +65,9 @@ export default {
     } catch (error) {
       console.error(error);
     } finally {
-      this.showLoading = false;
+      if (this.cases !== "") {
+        this.showLoading = false;
+      }
     }
   }
 };
