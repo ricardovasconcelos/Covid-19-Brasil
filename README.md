@@ -1,5 +1,5 @@
 # Covid-19-Brasil
-
+![foto](https://i.imgur.com/7nCrkbh.png)
 
 # vue-cli
 
